@@ -16,6 +16,7 @@ A new Flutter plugin project.
   s.source_files = 'Sources/**/*'
   s.dependency 'Flutter'
   s.dependency 'BraintreeDropIn'
+  s.dependency 'SwiftJWT'
   s.platform = :ios, '11.0'
   s.ios.vendored_frameworks = 'Frameworks/VNWebSDK.xcframework'
 
