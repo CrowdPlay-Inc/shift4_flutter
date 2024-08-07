@@ -1,0 +1,85 @@
+group 'com.shift4.shift4_sdk'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.7.10'
+    ext.serialization_version = '1.0.1'
+    ext.dokka_version = "0.10.1"
+    
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.3.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$serialization_version"
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:$dokka_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    if (project.android.hasProperty("namespace")) {
+        namespace 'com.shift4.shift4_sdk'
+    }
+
+    compileSdk 34
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+
+    defaultConfig {
+        minSdkVersion 19
+    }
+
+    dependencies {
+        testImplementation 'org.jetbrains.kotlin:kotlin-test'
+        testImplementation 'org.mockito:mockito-core:5.0.0'
+
+        //////// VN Web SDK Dependencies ////////
+        // VN Web SDK
+        implementation 'com.venuenext:vnwebsdk:2.4.0'
+
+        // JWT
+        api 'io.jsonwebtoken:jjwt-api:0.11.5'
+        runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+        runtimeOnly('io.jsonwebtoken:jjwt-orgjson:0.11.5') {
+            exclude group: 'org.json', module: 'json' //provided by Android natively
+        }
+    }
+
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+
+            testLogging {
+               events "passed", "skipped", "failed", "standardOut", "standardError"
+               outputs.upToDateWhen {false}
+               showStandardStreams = true
+            }
+        }
+    }
+}

@@ -1,0 +1,92 @@
+PODS:
+  - BlueCryptor (1.0.32)
+  - BlueECC (1.2.5)
+  - BlueRSA (1.0.200)
+  - Braintree/ApplePay (5.26.0):
+    - Braintree/Core
+  - Braintree/Card (5.26.0):
+    - Braintree/Core
+  - Braintree/Core (5.26.0)
+  - Braintree/PaymentFlow (5.26.0):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
+  - Braintree/PayPal (5.26.0):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
+  - Braintree/PayPalDataCollector (5.26.0)
+  - Braintree/ThreeDSecure (5.26.0):
+    - Braintree/Card
+    - Braintree/PaymentFlow
+  - Braintree/UnionPay (5.26.0):
+    - Braintree/Card
+  - Braintree/Venmo (5.26.0):
+    - Braintree/Core
+  - BraintreeDropIn (9.12.2):
+    - Braintree/ApplePay (~> 5.25)
+    - Braintree/Card (~> 5.25)
+    - Braintree/Core (~> 5.25)
+    - Braintree/PayPal (~> 5.25)
+    - Braintree/ThreeDSecure (~> 5.25)
+    - Braintree/UnionPay (~> 5.25)
+    - Braintree/Venmo (~> 5.25)
+  - Flutter (1.0.0)
+  - integration_test (0.0.1):
+    - Flutter
+  - KituraContracts (1.2.1):
+    - LoggerAPI (~> 1.7)
+  - LoggerAPI (1.9.200):
+    - Logging (~> 1.1)
+  - Logging (1.4.0)
+  - shift4_sdk (0.0.1):
+    - BraintreeDropIn
+    - Flutter
+    - SwiftJWT
+  - SwiftJWT (3.6.200):
+    - BlueCryptor (~> 1.0)
+    - BlueECC (~> 1.1)
+    - BlueRSA (~> 1.0)
+    - KituraContracts (~> 1.2)
+    - LoggerAPI (~> 1.7)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
+  - shift4_sdk (from `.symlinks/plugins/shift4_sdk/ios`)
+
+SPEC REPOS:
+  trunk:
+    - BlueCryptor
+    - BlueECC
+    - BlueRSA
+    - Braintree
+    - BraintreeDropIn
+    - KituraContracts
+    - LoggerAPI
+    - Logging
+    - SwiftJWT
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
+  shift4_sdk:
+    :path: ".symlinks/plugins/shift4_sdk/ios"
+
+SPEC CHECKSUMS:
+  BlueCryptor: b0aee3d9b8f367b49b30de11cda90e1735571c24
+  BlueECC: 0d18e93347d3ec6d41416de21c1ffa4d4cd3c2cc
+  BlueRSA: dfeef51db96bcc4edec654956c1581adbda4e6a3
+  Braintree: 53d39d5349a6316dc455b03334e869f43d6b51bd
+  BraintreeDropIn: 9245f1f6d5ff126501061b53d49b23ca26bf0149
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  integration_test: 13825b8a9334a850581300559b8839134b124670
+  KituraContracts: e845e60dc8627ad0a76fa55ef20a45451d8f830b
+  LoggerAPI: ad9c4a6f1e32f518fdb43a1347ac14d765ab5e3d
+  Logging: beeb016c9c80cf77042d62e83495816847ef108b
+  shift4_sdk: 611ad5743ffae9a84b56a6501b940abadea502c7
+  SwiftJWT: 88c412708f58c169d431d344c87bc79a87c830ae
+
+PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
+
+COCOAPODS: 1.15.2
