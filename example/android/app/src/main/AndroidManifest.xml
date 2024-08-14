@@ -1,4 +1,19 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Needed to access all basic functionality of the SDK -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Needed for QR Code scanning via Rich Checkout -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Needed to adjust the screen brightness when viewing a QR Code -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions"/>
+    <!-- Needed to determine user's location when attempting to purchase a Geo Exclusive marketplace experience -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:label="shift4_sdk_example"
         android:name="${applicationName}"

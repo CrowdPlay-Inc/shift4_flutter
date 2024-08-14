@@ -7,6 +7,7 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
+import com.venuenext.vnwebsdk.VenueNextWeb
 
 /** Shift4SdkPlugin */
 class Shift4SdkPlugin: FlutterPlugin, MethodCallHandler {
@@ -22,8 +23,9 @@ class Shift4SdkPlugin: FlutterPlugin, MethodCallHandler {
   }
 
   override fun onMethodCall(call: MethodCall, result: Result) {
-    if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
+    if (call.method == "initialize") {
+      VenueNextWeb.initialize("", "")
+      result.success(true)
     } else {
       result.notImplemented()
     }

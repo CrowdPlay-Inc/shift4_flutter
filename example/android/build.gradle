@@ -2,10 +2,18 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url "https://venuenext.jfrog.io/venuenext/android-sdk"
+            credentials {
+                username = System.getenv("VENUENEXT_USERNAME")
+                password = System.getenv("VENUENEXT_PASSWORD")
+            }
+        }
     }
 }
 
 rootProject.buildDir = '../build'
+
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
