@@ -29,8 +29,8 @@ class MethodChannelShift4Sdk extends Shift4SdkPlatform {
 
   @override
   Future<bool?> initialize(String org, {String? instance, String? env}) async {
-    final result = await methodChannel
-        .invokeMethod<bool>('initialize', {org, instance, env});
+    final result = await methodChannel.invokeMethod<bool>(
+        'initialize', {"org": org, "instance": instance, "env": env});
     return result;
   }
 

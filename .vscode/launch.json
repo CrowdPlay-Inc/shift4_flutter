@@ -1,0 +1,12 @@
+{
+    "version": "0.1.0",
+    "configurations": [
+      {
+        "name": "Shift4 SDK Example App",
+        "program": "example/lib/main.dart",
+        "request": "launch",
+        "type": "dart"
+      }
+    ]
+  }
+  

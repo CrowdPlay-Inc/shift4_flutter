@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      await _shift4SdkPlugin.initialize("");
+      await _shift4SdkPlugin.initialize("example");
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
@@ -49,9 +49,13 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
-        ),
+        body: Column(children: [
+          TextButton(
+              onPressed: () {
+                _shift4SdkPlugin.openWallet();
+              },
+              child: const Text("Open Wallet"))
+        ]),
       ),
     );
   }
