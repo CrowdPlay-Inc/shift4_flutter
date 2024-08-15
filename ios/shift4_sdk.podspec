@@ -15,13 +15,14 @@ A new Flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files = 'Sources/**/*'
   s.dependency 'Flutter'
-  s.dependency 'Braintree'
+  s.dependency 'Braintree/ThreeDSecure'
+  s.dependency 'Braintree/DataCollector'
   s.dependency 'BraintreeDropIn'
   s.dependency 'SwiftJWT'
-  s.platform = :ios, '11.0'
+  s.platform = :ios, '12.0'
   s.ios.vendored_frameworks = 'Frameworks/VNWebSDK.xcframework'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
-  s.swift_version = '5.7.2'
+  s.swift_version = '5.9'
 end
