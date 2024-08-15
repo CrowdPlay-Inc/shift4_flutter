@@ -2,6 +2,34 @@ import Flutter
 import UIKit
 import VNWebSDK
 
+public extension UIWindow {
+    var visibleViewController: UIViewController? {
+        return UIWindow.getVisibleViewControllerFrom(self.rootViewController)
+    }
+
+    static func getVisibleViewControllerFrom(_ vc: UIViewController?) -> UIViewController? {
+        if let nc = vc as? UINavigationController {
+            return UIWindow.getVisibleViewControllerFrom(nc.visibleViewController)
+        } else if let tc = vc as? UITabBarController {
+            return UIWindow.getVisibleViewControllerFrom(tc.selectedViewController)
+        } else {
+            if let pvc = vc?.presentedViewController {
+                return UIWindow.getVisibleViewControllerFrom(pvc)
+            } else {
+                return vc
+            }
+        }
+    }
+}
+
+func getTopViewController() -> UIViewController? {
+    let appDelegate = UIApplication.shared.delegate
+    if let window = appDelegate!.window {
+        return window?.visibleViewController
+    }
+    return nil
+}
+
 public class Shift4SdkPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "shift4_sdk", binaryMessenger: registrar.messenger())
@@ -57,7 +85,7 @@ public class Shift4SdkPlugin: NSObject, FlutterPlugin {
 
         result(true)
     case "openWallet":
-        guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController, let url = URL(string: "theapp://vn/wallet") else {result(false); return;}
+        guard let rootViewController = getTopViewController(), let url = URL(string: "theapp://vn/wallet") else {result(false); return;}
         
         VenueNextWeb.handle(url: url, presenter: rootViewController, completion: nil)
         result(true)
