@@ -15,8 +15,6 @@ A new Flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files = 'Sources/**/*'
   s.dependency 'Flutter'
-  s.dependency 'Braintree/ThreeDSecure'
-  s.dependency 'Braintree/DataCollector'
   s.dependency 'BraintreeDropIn'
   s.dependency 'SwiftJWT'
   s.platform = :ios, '12.0'

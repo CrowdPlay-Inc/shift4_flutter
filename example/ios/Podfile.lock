@@ -7,8 +7,6 @@ PODS:
   - Braintree/Card (5.26.0):
     - Braintree/Core
   - Braintree/Core (5.26.0)
-  - Braintree/DataCollector (5.26.0):
-    - Braintree/Core
   - Braintree/PaymentFlow (5.26.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
@@ -40,8 +38,6 @@ PODS:
     - Logging (~> 1.1)
   - Logging (1.4.0)
   - shift4_sdk (0.0.1):
-    - Braintree/DataCollector
-    - Braintree/ThreeDSecure
     - BraintreeDropIn
     - Flutter
     - SwiftJWT
@@ -88,7 +84,7 @@ SPEC CHECKSUMS:
   KituraContracts: e845e60dc8627ad0a76fa55ef20a45451d8f830b
   LoggerAPI: ad9c4a6f1e32f518fdb43a1347ac14d765ab5e3d
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
-  shift4_sdk: e4746c0d99bfcfffbbff3d53ff18afabe13a3677
+  shift4_sdk: 58d92f411f28f3d0633469ce6f7808a3b863cf74
   SwiftJWT: 88c412708f58c169d431d344c87bc79a87c830ae
 
 PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
