@@ -2,6 +2,7 @@
     <application
         android:label="shift4_sdk_example"
         android:name="${applicationName}"
+        android:theme="@style/Theme.AppCompat.Light"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
