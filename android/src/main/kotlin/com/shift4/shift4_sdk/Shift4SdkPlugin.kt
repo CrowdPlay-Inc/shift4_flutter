@@ -1,5 +1,6 @@
 package com.shift4.shift4_sdk
 
+import android.app.Activity
 import android.content.Context
 import com.venuenext.vnwebsdk.VNNavigationController
 import io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -9,21 +10,38 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import com.venuenext.vnwebsdk.VenueNextWeb
 import com.venuenext.vnwebsdk.models.User
+import io.flutter.embedding.engine.plugins.activity.ActivityAware
+import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
 
 
 /** Shift4SdkPlugin */
-class Shift4SdkPlugin: FlutterPlugin, MethodCallHandler {
+class Shift4SdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
   /// The MethodChannel that will the communication between Flutter and native Android
   ///
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
   private lateinit var channel : MethodChannel
-  private lateinit var context: Context
+  private var activity: Activity? = null;
 
   override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "shift4_sdk")
     channel.setMethodCallHandler(this)
-    this.context = flutterPluginBinding.applicationContext
+  }
+
+  override fun onAttachedToActivity(binding: ActivityPluginBinding) {
+    activity = binding.activity;
+  }
+
+  override fun onDetachedFromActivityForConfigChanges() {
+    activity = null;
+  }
+
+  override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
+    activity = binding.activity;
+  }
+
+  override fun onDetachedFromActivity() {
+    activity = null;
   }
 
   override fun onMethodCall(call: MethodCall, result: Result) {
@@ -71,7 +89,12 @@ class Shift4SdkPlugin: FlutterPlugin, MethodCallHandler {
       VenueNextWeb.logUserOut()
       result.success(true)
     } else if (call.method == "openWallet") {
-      VNNavigationController.showWallet(this.context);
+      if (this.activity == null) {
+        result.success(false)
+        return;
+      }
+
+      VNNavigationController.showWallet(this.activity!!);
       result.success(true)
     } else {
       result.notImplemented()
