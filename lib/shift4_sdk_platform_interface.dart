@@ -43,4 +43,8 @@ abstract class Shift4SdkPlatform extends PlatformInterface {
   Future<bool?> openWallet() {
     throw UnimplementedError('openWallet() has not been implemented.');
   }
+
+  Future<bool?> openQRCode() {
+    throw UnimplementedError('openQRCode() has not been implemented.');
+  }
 }

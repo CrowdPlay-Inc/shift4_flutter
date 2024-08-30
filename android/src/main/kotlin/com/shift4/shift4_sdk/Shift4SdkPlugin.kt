@@ -90,7 +90,7 @@ class Shift4SdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       result.success(true)
     } else if (call.method == "setPrivateKey") {
       var key = call.argument<String>("key")
-      VenueNextWeb.privateKeyString = key.trimIndent()
+      VenueNextWeb.privateKeyString = key?.trimIndent()
 
       result.success(true)
     } else if (call.method == "openWallet") {
@@ -100,6 +100,14 @@ class Shift4SdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       }
 
       VNNavigationController.showWallet(this.activity!!);
+      result.success(true)
+    } else if (call.method == "openQRCode") {
+      if (this.activity == null) {
+        result.success(false)
+        return;
+      }
+
+      VNNavigationController.showQrCode(this.activity!!);
       result.success(true)
     } else {
       result.notImplemented()

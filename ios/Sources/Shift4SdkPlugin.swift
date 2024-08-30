@@ -95,6 +95,11 @@ public class Shift4SdkPlugin: NSObject, FlutterPlugin {
         
         VenueNextWeb.handle(url: url, presenter: rootViewController, completion: nil)
         result(true)
+    case "openQRCode":
+        guard let rootViewController = getTopViewController(), let url = URL(string: "theapp://vn/wallet/qrcode") else {result(false); return;}
+        
+        VenueNextWeb.handle(url: url, presenter: rootViewController, completion: nil)
+        result(true)
     default:
       result(FlutterMethodNotImplemented)
     }

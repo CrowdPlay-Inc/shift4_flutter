@@ -67,4 +67,10 @@ class MethodChannelShift4Sdk extends Shift4SdkPlatform {
     final result = await methodChannel.invokeMethod<bool>('openWallet');
     return result;
   }
+
+  @override
+  Future<bool?> openQRCode() async {
+    final result = await methodChannel.invokeMethod<bool>('openQRCode');
+    return result;
+  }
 }

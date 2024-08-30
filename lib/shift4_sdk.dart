@@ -23,4 +23,8 @@ class Shift4Sdk {
   Future<bool?> openWallet() {
     return Shift4SdkPlatform.instance.openWallet();
   }
+
+  Future<bool?> openQRCode() {
+    return Shift4SdkPlatform.instance.openQRCode();
+  }
 }
