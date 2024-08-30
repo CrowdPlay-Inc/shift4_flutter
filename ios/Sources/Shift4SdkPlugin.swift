@@ -51,7 +51,12 @@ public class Shift4SdkPlugin: NSObject, FlutterPlugin {
         let instance: String = args["instance"] as? String ?? ""
         let env: String = args["env"] as? String ?? ""
         
-        VenueNextWeb.shared.initialize(org!, instance: instance, env: instance)
+        if env == "" {
+            VenueNextWeb.shared.initialize(org!, instance: instance)
+        } else {
+            VenueNextWeb.shared.initialize(org!, instance: instance, env: env)
+        }
+        VenueNextWeb.shared.configureTheme(VNBaseTheme())
         result(true)
     case "setUser":
         guard let args = call.arguments as? [String : Any] else {result(false); return;}
