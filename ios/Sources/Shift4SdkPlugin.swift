@@ -89,6 +89,12 @@ public class Shift4SdkPlugin: NSObject, FlutterPlugin {
         VenueNextWeb.shared.logUserOut()
 
         result(true)
+    case "setPrivateKey":
+        guard let args = call.arguments as? [String : Any] else {result(false); return;}
+
+        VenueNextWeb.shared.privateKeyString = args["key"] as? String ?? ""
+
+        result(true)
     case "openWallet":
         guard let rootViewController = getTopViewController(), let url = URL(string: "theapp://vn/wallet") else {result(false); return;}
         

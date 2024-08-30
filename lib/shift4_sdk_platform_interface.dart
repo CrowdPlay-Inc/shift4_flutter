@@ -32,6 +32,10 @@ abstract class Shift4SdkPlatform extends PlatformInterface {
     throw UnimplementedError('setUser() has not been implemented.');
   }
 
+  Future<bool?> setPrivateKey(String? key) {
+    throw UnimplementedError('setPrivateKey() has not been implemented.');
+  }
+
   Future<bool?> logUserOut() {
     throw UnimplementedError('logUserOut() has not been implemented.');
   }

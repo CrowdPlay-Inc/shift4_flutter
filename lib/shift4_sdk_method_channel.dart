@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'shift4_sdk_platform_interface.dart';
 
 class Shift4User {
-  final String userId;
+  final String? userId;
   final String? email;
   final String? firstName;
   final String? lastName;
@@ -12,8 +12,9 @@ class Shift4User {
   final String? provider;
   final String? accessToken;
 
-  Shift4User(this.userId,
-      {this.email,
+  Shift4User(
+      {this.userId,
+      this.email,
       this.firstName,
       this.lastName,
       this.phoneNumber,
@@ -45,6 +46,13 @@ class MethodChannelShift4Sdk extends Shift4SdkPlatform {
       "provider": user.provider,
       "accessToken": user.accessToken
     });
+    return result;
+  }
+
+  @override
+  Future<bool?> setPrivateKey(String? key) async {
+    final result =
+        await methodChannel.invokeMethod<bool>('setPrivateKey', {key});
     return result;
   }
 

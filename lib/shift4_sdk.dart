@@ -12,6 +12,10 @@ class Shift4Sdk {
     return Shift4SdkPlatform.instance.setUser(user);
   }
 
+  Future<bool?> setPrivateKey(String? key) {
+    return Shift4SdkPlatform.instance.setPrivateKey(key);
+  }
+
   Future<bool?> logUserOut() {
     return Shift4SdkPlatform.instance.logUserOut();
   }
