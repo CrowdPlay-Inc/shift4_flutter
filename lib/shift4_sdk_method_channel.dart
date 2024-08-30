@@ -52,7 +52,7 @@ class MethodChannelShift4Sdk extends Shift4SdkPlatform {
   @override
   Future<bool?> setPrivateKey(String? key) async {
     final result =
-        await methodChannel.invokeMethod<bool>('setPrivateKey', {key});
+        await methodChannel.invokeMethod<bool>('setPrivateKey', {"key": key});
     return result;
   }
 
