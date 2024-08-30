@@ -62,11 +62,6 @@ public class Shift4SdkPlugin: NSObject, FlutterPlugin {
         guard let args = call.arguments as? [String : Any] else {result(false); return;}
         
         let userId = args["userId"] as? String
-        if userId == nil {
-            result(false)
-            return
-        }
-        
         let email = args["email"] as? String
         let firstName = args["firstName"] as? String
         let lastName = args["lastName"] as? String
@@ -75,7 +70,7 @@ public class Shift4SdkPlugin: NSObject, FlutterPlugin {
         let accessToken = args["accessToken"] as? String
         
         VenueNextWeb.shared.setUser(
-            User(userId!,
+            User(userId,
                  email: email,
                  firstName: firstName,
                  lastName: lastName,
