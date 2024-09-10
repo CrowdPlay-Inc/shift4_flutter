@@ -90,9 +90,9 @@ class Shift4SdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       result.success(true)
     } else if (call.method == "isLoggedIn") {
       if (VenueNextWeb.currentUser == null) {
-        result(false)
+        result.success(false)
       } else {
-        result(true)
+        result.success(true)
       }
     } else if (call.method == "setPrivateKey") {
       var key = call.argument<String>("key")
