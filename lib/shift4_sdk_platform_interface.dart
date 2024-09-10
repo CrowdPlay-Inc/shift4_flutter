@@ -40,6 +40,10 @@ abstract class Shift4SdkPlatform extends PlatformInterface {
     throw UnimplementedError('logUserOut() has not been implemented.');
   }
 
+  Future<bool?> isLoggedIn() {
+    throw UnimplementedError('isLoggedIn() has not been implemented.');
+  }
+
   Future<bool?> openWallet() {
     throw UnimplementedError('openWallet() has not been implemented.');
   }

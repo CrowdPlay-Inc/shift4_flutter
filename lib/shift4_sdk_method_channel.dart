@@ -63,6 +63,12 @@ class MethodChannelShift4Sdk extends Shift4SdkPlatform {
   }
 
   @override
+  Future<bool?> isLoggedIn() async {
+    final result = await methodChannel.invokeMethod<bool>('isLoggedIn');
+    return result;
+  }
+
+  @override
   Future<bool?> openWallet() async {
     final result = await methodChannel.invokeMethod<bool>('openWallet');
     return result;

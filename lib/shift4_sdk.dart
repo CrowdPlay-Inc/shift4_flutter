@@ -20,6 +20,10 @@ class Shift4Sdk {
     return Shift4SdkPlatform.instance.logUserOut();
   }
 
+  Future<bool?> isLoggedIn() {
+    return Shift4SdkPlatform.instance.isLoggedIn();
+  }
+
   Future<bool?> openWallet() {
     return Shift4SdkPlatform.instance.openWallet();
   }

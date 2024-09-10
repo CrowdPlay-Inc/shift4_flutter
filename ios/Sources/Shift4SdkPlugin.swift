@@ -84,6 +84,10 @@ public class Shift4SdkPlugin: NSObject, FlutterPlugin {
         VenueNextWeb.shared.logUserOut()
 
         result(true)
+    case "isLoggedIn":
+        let currentUser = VenueNextWeb.shared.currentUser
+        
+        result(currentUser == nil ? false : true)
     case "setPrivateKey":
         guard let args = call.arguments as? [String : Any] else {result(false); return;}
 

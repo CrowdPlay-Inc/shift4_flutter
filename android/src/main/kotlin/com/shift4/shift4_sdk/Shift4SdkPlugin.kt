@@ -88,6 +88,12 @@ class Shift4SdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
     } else if (call.method == "logUserOut") {
       VenueNextWeb.logUserOut()
       result.success(true)
+    } else if (call.method == "isLoggedIn") {
+      if (VenueNextWeb.currentUser == null) {
+        result(false)
+      } else {
+        result(true)
+      }
     } else if (call.method == "setPrivateKey") {
       var key = call.argument<String>("key")
       VenueNextWeb.privateKeyString = key?.trimIndent()
