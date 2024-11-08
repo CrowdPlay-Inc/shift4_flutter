@@ -15,9 +15,9 @@ A new Flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files = 'Sources/**/*'
   s.dependency 'Flutter'
-  s.dependency 'BraintreeDropIn'
-  s.dependency 'SwiftJWT'
-  s.platform = :ios, '12.0'
+  s.dependency 'BraintreeDropIn', '~> 9.13.0'
+  s.dependency 'SwiftJWT', '~> 4.0.1'
+  s.platform = :ios, '15.6'
   s.ios.vendored_frameworks = 'Frameworks/VNWebSDK.xcframework'
 
   # Flutter.framework does not contain a i386 slice.
