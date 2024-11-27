@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'shift4_sdk'
-  s.version          = '0.1.15'
+  s.version          = '0.1.16'
   s.summary          = 'A new Flutter plugin project.'
   s.description      = <<-DESC
 A new Flutter plugin project.
@@ -22,5 +22,5 @@ A new Flutter plugin project.
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
-  s.swift_version = '5.7'
+  s.swift_version = '6.0'
 end
