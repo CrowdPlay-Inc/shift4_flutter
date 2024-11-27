@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'shift4_sdk'
-  s.version          = '0.1.17'
+  s.version          = '0.1.18'
   s.summary          = 'A new Flutter plugin project.'
   s.description      = <<-DESC
 A new Flutter plugin project.
@@ -16,11 +16,11 @@ A new Flutter plugin project.
   s.source_files = 'Sources/**/*'
   s.dependency 'Flutter'
   s.dependency 'BraintreeDropIn', '~> 9.13.0'
-  s.dependency 'SwiftJWT', '~> 3.6.200'
-  s.platform = :ios, '15.0'
+  s.dependency 'SwiftJWT'
+  s.platform = :ios, '12.4'
   s.ios.vendored_frameworks = 'Frameworks/VNWebSDK.xcframework'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
-  s.swift_version = '5.7'
+  s.swift_version = '5.0'
 end

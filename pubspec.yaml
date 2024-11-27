@@ -1,6 +1,6 @@
 name: shift4_sdk
 description: "Utilize the Shift4 SDK in Flutter Applications"
-version: 0.1.17
+version: 0.1.8
 homepage:
 
 environment:
