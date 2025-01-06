@@ -61,7 +61,11 @@ class Shift4SdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
         env = call.argument<String>("env").toString()
       }
 
-      VenueNextWeb.initialize(org, instance, env)
+      if (env == "") {
+        VenueNextWeb.initialize(org, instance)
+      } else {
+        VenueNextWeb.initialize(org, instance, env)
+      }
 
       result.success(true)
     } else if (call.method == "setUser") {
