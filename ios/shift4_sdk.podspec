@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'shift4_sdk'
-  s.version          = '0.1.18'
+  s.version          = '0.1.20'
   s.summary          = 'A new Flutter plugin project.'
   s.description      = <<-DESC
 A new Flutter plugin project.
@@ -16,7 +16,7 @@ A new Flutter plugin project.
   s.source_files = 'Sources/**/*'
   s.dependency 'Flutter'
   s.dependency 'BraintreeDropIn', '~> 9.13.0'
-  s.dependency 'SwiftJWT'
+  s.dependency 'SwiftJWT', '~> 4.0.2'
   s.platform = :ios, '12.4'
   s.ios.vendored_frameworks = 'Frameworks/VNWebSDK.xcframework'
 
