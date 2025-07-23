@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'shift4_sdk'
-  s.version          = '0.1.18'
+  s.version          = '0.1.20'
   s.summary          = 'A new Flutter plugin project.'
   s.description      = <<-DESC
 A new Flutter plugin project.
